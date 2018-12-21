@@ -6,22 +6,31 @@ import { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Navbar from './Navbar';
-import './all.sass';
 
 type Props = {
   children: React.Node,
 };
 
-const colorPink = '#f06595';
-const colorGrey = '#868e96';
-const colorOverlay = 'rgba(74, 74, 74, 30)';
+// const colorBlue = '#82aaff';
+// const colorGrey = '#868e96';
+// const colorBlack = '#292d3e';
+const colorRed = '#f07178';
+const colorOverlay = 'rgba(67, 90, 111, 0.7)';
+
+const textDefault = '#425A70';
+const textDark = '#234361';
+const textMuted = '#66788A';
+const linkBase = '#1070CA';
 
 const theme = {
   breakpoints: [576, 768, 992, 1200],
   radii: [4],
   colors: {
-    primary: colorPink,
-    scondary: colorGrey,
+    linkBase,
+    textDefault,
+    textDark,
+    textMuted,
+    colorRed,
     overlay: colorOverlay,
   },
   fonts: {

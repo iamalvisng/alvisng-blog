@@ -1,8 +1,12 @@
 // @flow
 
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+
 import Layout from '../components/Layout';
+import GlobalStyles from '../components/styled/global/index';
+import { Display, TextBlock } from '../components/styled/type.styled';
+import { StyledLink } from '../components/styled/link.styled';
 
 type Props = {
   data: Object,
@@ -23,32 +27,24 @@ export default class IndexPage extends React.Component<Props, State> {
 
     return (
       <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
+        <GlobalStyles />
+        <section>
+          <div>
+            <div>
+              <Display>Latest Stories</Display>
             </div>
             {posts.map(({ node: post }) => (
-              <div
-                className="content"
-                style={{ border: '1px solid #333', padding: '2em 4em' }}
-                key={post.id}
-              >
-                <p>
-                  <Link className="has-text-primary" to={post.fields.slug}>
+              <div key={post.id}>
+                <TextBlock>
+                  <StyledLink to={post.fields.slug}>
                     {post.frontmatter.title}
-                  </Link>
-                  <span> &bull; </span>
+                  </StyledLink>
                   <small>{post.frontmatter.date}</small>
-                </p>
-                <p>
+                </TextBlock>
+                <TextBlock>
                   {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button is-small" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
+                  <StyledLink to={post.fields.slug}>Keep Reading</StyledLink>
+                </TextBlock>
               </div>
             ))}
           </div>
